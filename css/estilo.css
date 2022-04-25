@@ -5,10 +5,6 @@
     box-sizing: border-box;
  }
 
- html{
-   width: 1920px;
- }
-
  header{
    background-color: #F9F8FC;
    margin: auto;
