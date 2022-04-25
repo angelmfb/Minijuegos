@@ -16,16 +16,16 @@
         <nav>
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
-                <li><a href="#">Contacto</a></li>
-                <li><a href="#">Ubicación</a></li>
-                <li><a href="#">Reservas</a></li>
+                <li><a href="#">Listar Minijuegos</a></li>
+                <li><a href="#">Borrar Minijuegos</a></li>
+                <li><a href="#">Modificar Minijuegos</a></li>
             </ul>
         </nav>
         <main>
             <h2>Registro</h2>
             <form action="#" method="post">
                 <label>Nombre:</label>
-                <input type="text" placeholder="Nombre" name="nombre"><br /><br />
+                <input type="text" placeholder="Nombre Minijuego" name="nombre"><br /><br />
                 <label>Icono:</label>
                 <input type="file" placeholder="Icono" name="icono"><br /><br />
                 <label>Ruta:</label>

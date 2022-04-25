@@ -12,5 +12,8 @@ CREATE TABLE Minijuego (
     ruta varchar(255) not null
 );
 
+--Crear usuario
+CREATE USER 'angel'@'%' IDENTIFIED BY 'minijuegos';
+
 --Permisos
 GRANT SELECT, INSERT, UPDATE, DELETE ON 'minijuegos'.* TO 'angel'@'%';
