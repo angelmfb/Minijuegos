@@ -1,0 +1,52 @@
+/*Ángel Manuel Fernández Baños */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+
+ html{
+   width: 1920px;
+ }
+
+ header{
+   background-color: #F9F8FC;
+   margin: auto;
+   height: 250px;
+   width: 16.66666666666667%;/*(320px*100)/1920*/
+   text-align: center;
+ }
+
+ h1{
+    font-family: 'Pacifico', cursive;
+    font-size: 58px;
+  }
+
+nav{
+  height: 60px;
+  background-color:#17181C;
+  text-align: center;
+}
+
+nav ul{
+   list-style: none;
+   display: inline-block;
+   padding:18px;
+}
+
+nav ul li{
+    float: left;
+    margin-top: 20px;
+}
+
+nav ul li a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 18px;
+}
+
+nav ul li a:hover{
+  background-color: #929fb3;
+}
