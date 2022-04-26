@@ -11,14 +11,7 @@
         }
         //Realizar la consulta del alta 
         function alta(){
-            $nombre=$_POST['nombre'];
-            $icono=$_POST['icono'];
-            $ruta=$_POST['ruta'];
-            if(empty($_POST['icono'])){
-                $consulta="INSERT INTO minijuego (nombre,icono,ruta) VALUES ('".$_POST['nombre']."',NULL,'".$_POST['ruta']."');";
-            }else{
-                $consulta="INSERT INTO minijuego (nombre,icono,ruta) VALUES ('".$_POST['nombre']."','".$_POST['icono']."','".$_POST['ruta']."');";
-            }
+            $consulta="INSERT INTO minijuego (nombre,icono,ruta) VALUES ('".$_POST['nombre']."','".$_POST['icono']."','".$_POST['ruta']."');";
             if($this->consultar($consulta)){
                 echo('Consulta realizada');
             }else{
