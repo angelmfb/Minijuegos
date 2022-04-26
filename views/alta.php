@@ -16,9 +16,9 @@
         <nav>
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
-                <li><a href="#">Listar Minijuegos</a></li>
-                <li><a href="#">Borrar Minijuegos</a></li>
-                <li><a href="#">Modificar Minijuegos</a></li>
+                <li><a href="">Listar Minijuegos</a></li>
+                <li><a href="">Contacto</a></li>
+                <li><a href="">Servicio</a></li>
             </ul>
         </nav>
         <main>
@@ -27,7 +27,7 @@
                 <label>Nombre:</label>
                 <input type="text" placeholder="Nombre Minijuego" name="nombre"><br /><br />
                 <label>Icono:</label>
-                <input type="file" placeholder="Icono" name="icono"><br /><br />
+                <input type="text" placeholder="Icono" name="icono"><br /><br />
                 <label>Ruta:</label>
                 <input type="text" placeholder="Ruta" name="ruta"><br /><br />
                 <input type="submit" value="Enviar" name="enviar">
@@ -36,6 +36,7 @@
                 require_once __DIR__ . '/../controller/controlador.php';
                 $controlador=new Controlador();
                 if (isset($_POST['enviar'])) {
+                    //llamo a la funcion del alta del controlador
                     $controlador->altaMinijuego();
                 }
             ?>
