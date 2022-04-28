@@ -16,7 +16,7 @@
         <nav>
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
-                <li><a href="">Listar Minijuegos</a></li>
+                <li><a href="index.php?action=listar">Listar Minijuegos</a></li>
                 <li><a href="">Contacto</a></li>
                 <li><a href="">Servicio</a></li>
             </ul>
@@ -32,14 +32,7 @@
                 <input type="text" placeholder="Ruta" name="ruta"><br /><br />
                 <input type="submit" value="Enviar" name="enviar">
             </form>
-            <?php
-                require_once __DIR__ . '/../controller/controlador.php';
-                $controlador=new Controlador();
-                if (isset($_POST['enviar'])) {
-                    //llamo a la funcion del alta del controlador
-                    $controlador->altaMinijuego();
-                }
-            ?>
+           
         </main>
     </body>
 </html>

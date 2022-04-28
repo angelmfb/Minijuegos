@@ -5,5 +5,8 @@
         case 'alta':
             $controlador->altaMinijuego();
             break;
+        case 'listar':
+            $controlador -> listarMinijuegos();
+            break;
     }
 ?>

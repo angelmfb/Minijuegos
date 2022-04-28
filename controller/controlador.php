@@ -11,19 +11,13 @@
             include_once __DIR__ . '/../views/alta.php';
             //Compruebo que el nombre no se queda en blanco
             if(empty($_POST['nombre'])){    
-                echo ('No se puede quedar el nombre en blanco'); 
-            }else {
-                if (empty($_POST['icono'])) {
-                    $icono = 'NULL';
-                }else {
-                    $icono = "'".$_POST['icono']."'";
-                }
+                echo 'No se puede quedar el nombre en blanco'; 
             }else{
                 //Compruebo si la ruta se queda en blanco
                 if(empty($_POST['ruta'])){   
-                    echo ('La ruta no se puede quedar en blanco');
+                    echo 'La ruta no se puede quedar en blanco';
                 }else{
-                        $this->modelo->alta();
+                    $this->modelo->alta();
                 }
             }
         }
