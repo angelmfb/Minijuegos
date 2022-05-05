@@ -16,9 +16,10 @@
         <nav>
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
-                <li><a href="index.php?action=listar">Listar Minijuegos</a></li>
-                <li><a href="">Contacto</a></li>
-                <li><a href="">Servicio</a></li>
+                <li><a href='index.php?accion=alta'>Alta Minijuegos</a></li>
+                <li><a href="index.php?accion=listar">Listado Minijuegos</a></li>
+                <li><a href="index.php?accion=seleccionar">Seleccion Minijuegos</a></li>
+                <li><a href="index.php?accion=checkbox">Checkbox Minijuegos</a></li>
             </ul>
         </nav>
         <main>
@@ -32,7 +33,15 @@
                 <input type="text" placeholder="Ruta" name="ruta"><br /><br />
                 <input type="submit" value="Enviar" name="enviar">
             </form>
-           
+            <?php
+                
+                if (isset($_POST['enviar'])) {
+                    require_once __DIR__ . '/../controller/controlador.php';
+                    $controlador=new Controlador();
+                    //llamo a la funcion del alta del controlador
+                    $resultado=$controlador->darAlta();
+                }
+            ?>
         </main>
     </body>
 </html>

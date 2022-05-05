@@ -11,7 +11,7 @@
     </head>
     <body>
         <header>
-            <h1>Listado de Minijuegos</h1>
+            <h1>Borrar Minijuegos</h1>
         </header>
         <nav>
             <ul>
@@ -31,17 +31,35 @@
             <?php
                 require_once __DIR__. "/../controller/controlador.php";
                 $controlador=new Controlador();
-                $resultado=$controlador->listarMinijuego();
-                while($fila=$resultado->fetch_assoc()) {
+                $resultado=$controlador->consultarMinijuego();
+                while($fila=$resultado->fetch_assoc()){ ////Duda cuando devuelvo un string me da error porque tengo el fetch como podria arreglarlo
                     echo "<tr>
                             <td>".$fila['nombre']."</td>
                             <td>".$fila['icono']."</td>
                             <td>".$fila['ruta']."</td>
-                            <td><a href='index.php?accion=borrar&id=".$fila['id']."'><img src='../imagen/eliminar.png' /></a></td>
-                            <td><a href='index.php?accion=editar&id=".$fila['id']."'><img src='../imagen/editar.png' /></a></td>
                         </tr>";
+                    //Como solo va a haber un id lo meto en una variable para después borrarlo si el usuario lo desea    
+                    $id=$fila['id'];
                 }
             ?>
         </table>
+        <form action="#" method="post">
+            <input type="submit" value="Borrar" name="borrar">
+            <input type="submit" value="Cancelar" name="cancelar">
+        </form>
     </body>
 </html>
+<?php
+    if(isset($_POST['borrar'])){
+        //LLamo al método borrarMinijuego del controlador y le paso el id que guardo antes cuando consulto el minijuego
+        $resultado=$controlador->borrarMinijuego($id);
+        //Visualizo el resultado del metodo
+        echo $resultado;
+        //Redirijo a la página index en 4seg
+        header("Refresh:3,url= ../index.html");
+    }
+    //Si pulsan cancelar redirijo a la página index
+    if(isset($_POST['cancelar'])){
+        header("Location: ../index.html");
+    }
+?>
