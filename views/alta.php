@@ -38,8 +38,8 @@
                 if (isset($_POST['enviar'])) {
                     require_once __DIR__ . '/../controller/controlador.php';
                     $controlador=new Controlador();
-                    //llamo a la funcion del alta del controlador
-                    $resultado=$controlador->darAlta();
+                    $resultado=$controlador->alta();
+                    echo $resultado;
                 }
             ?>
         </main>

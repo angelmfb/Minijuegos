@@ -8,8 +8,7 @@
         }
 
 
-        function darAlta(){
-            //Incluyo la vista del alta
+        function alta(){
             include_once __DIR__. "/../views/alta.php";
             //Compruebo que el nombre no se queda en blanco
             if(empty($_POST['nombre'])){
@@ -108,7 +107,7 @@
             if($this->modelo->conexion->affected_rows>0){
                 return "Hay ".$this->modelo->conexion->affected_rows." filas afectadas.";
             }else{
-                //Compruebo que los nombres no se repitan con este error que sale al repetirse el nombre en la base de datos
+                //Compruebo que los nombres no se repitan 
                 if($this->modelo->conexion->errno==1062){
                     return "El nombre ya existe";
                 }else{
@@ -121,7 +120,7 @@
         function seleccionarMinijuego(){
             //Incluyo la vista
             include_once __DIR__. "/../views/seleccionar.php";
-            //Llamo a la función listar del modelo para que me devuelva todos los minijuegos que hay en la base de datos
+            //Llamo a la función listar
             $resultado=$this->modelo->listar();
             return $resultado;
         }
@@ -133,7 +132,11 @@
         }
 
         function checkboxMinijuego(){
-            
+            //Incluyo la vista
+            include_once __DIR__. "/../views/checkbox.php";
+            //Llamo a la función listar 
+            $resultado=$this->modelo->listar();
+            return $resultado;
         }
     }
 ?>

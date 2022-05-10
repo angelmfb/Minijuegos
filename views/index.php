@@ -5,7 +5,7 @@
         //Realizo un switch de la accion y según la acción que viene por ruta llamo a un método del controlador u otro
         switch($_GET['accion']){
             case 'alta':
-                $controlador->darAlta();
+                $controlador->alta();
                 break;
             case 'listar':
                 $controlador->listarMinijuego();

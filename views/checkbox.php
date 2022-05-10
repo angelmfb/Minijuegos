@@ -23,44 +23,29 @@
             </ul>
         </nav>
         <form action="#" method="post">
-            <select name="minijuegos">
-                <?php
-                    require_once __DIR__. "/../controller/controlador.php";
-                    $controlador=new Controlador();
-                    $resultado=$controlador->seleccionarMinijuego();
-                    while($fila=$resultado->fetch_assoc()){
-                        echo "<option value=".$fila['id'].">".$fila['nombre']."</option>";
-                    }
-                ?>
-            </select>
-            <input type="submit" value="Ver" name="ver">
+            <?php
+                require_once __DIR__. "/../controller/controlador.php";
+                $controlador=new Controlador();
+                $resultado=$controlador->checkboxMinijuego();
+                while($fila=$resultado->fetch_assoc()){
+                    echo "
+                            <label>".$fila['nombre']."</label>
+                            <input type='checkbox' name='lista[]' value=".$fila['nombre']." ><br>
+                        ";
+                }
+            ?>
+            <input type="submit" value="Enviar" name="enviar">
             <input type="submit" value="Cancelar" name="cancelar">
         </form>
         <?php
-            if(isset($_POST['ver'])){
-                $resultado=$controlador->datosMinijuegoSeleccionado($_POST['minijuegos']);
-                echo    "
-                            <table>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Icono</th>
-                                <th>Ruta</th>
-                            </tr>
-                            ";
-                while($fila=$resultado->fetch_assoc()){
-                    echo "<tr>
-                            <td>".$fila['nombre']."</td>
-                            <td>".$fila['icono']."</td>
-                            <td>".$fila['ruta']."</td>
-                        </tr>";
+            if(isset($_POST['enviar'])){
+                //comprueba los marcados
+                if(!empty($_POST['lista'])){
+                    foreach($_POST['lista'] as $seleccionado){
+                    echo $seleccionado."</br>";// Imprime resultados
+                    }
                 }
-                echo    "</table>";
-            }
+            }//No he sido capaz de enviarlo con el id y realizar la consulta porque me decia un fallo que no encontraba el id
         ?>
     </body>
 </html>
-<?php
-    if(isset($_POST['cancelar'])){
-        header("Location: ../index.html");
-    }
-?>

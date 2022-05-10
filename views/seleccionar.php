@@ -33,11 +33,11 @@
                     }
                 ?>
             </select>
-            <input type="submit" value="Ver" name="ver">
+            <input type="submit" value="Enviar" name="enviar">
             <input type="submit" value="Cancelar" name="cancelar">
         </form>
         <?php
-            if(isset($_POST['ver'])){
+            if(isset($_POST['enviar'])){
                 $resultado=$controlador->datosMinijuegoSeleccionado($_POST['minijuegos']);
                 echo    "
                             <table>
