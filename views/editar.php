@@ -40,9 +40,9 @@
                         <label>Nombre Icono: </label>
                     ";
                 if($icono==NULL){
-                    echo "<input type='text' name='icono'><br />";
+                    echo "<input type='file' name='icono'><br />";
                 }else{
-                    echo "<input type='text' value=$icono name='icono'><br />";
+                    echo "<input type='file' value=$icono name='icono'><br />";
                 }
                 echo "
                         <label>Ruta Minijuego: </label>

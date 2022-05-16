@@ -28,7 +28,7 @@
                 <label>Nombre:</label>
                 <input type="text" placeholder="Nombre Minijuego" name="nombre"><br /><br />
                 <label>Icono:</label>
-                <input type="text" placeholder="Icono" name="icono"><br /><br />
+                <input type="file" name="icono"><br /><br />
                 <label>Ruta:</label>
                 <input type="text" placeholder="Ruta" name="ruta"><br /><br />
                 <input type="submit" value="Enviar" name="enviar">

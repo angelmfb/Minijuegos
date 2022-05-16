@@ -10,19 +10,29 @@
 
         function alta(){
             include_once __DIR__. "/../views/alta.php";
-            //Compruebo que el nombre no se queda en blanco
+            //que el nombre no este vacio
             if(empty($_POST['nombre'])){
                 return "No dejes el nombre en blanco";
             }else{
                 $nombre="'".$_POST['nombre']."'";
             }
-            //Compruebo si el icono está en blanco y le meto NULL y sino le pongo las comillas para después al realizar la consulta
-            if(empty($_POST['icono'])){
-                $icono='NULL';
+            // si existe el fichero 
+            if(!empty($_FILES['icono']['name'])){
+                $icono="'".basename($_FILES["icono"]["name"])."'";
+                $tipo=$_FILES['icono']['type'];
+                $tamaño=$_FILES["icono"]["size"];
+                //Comprobar imagen y tamaño
+                if($tipo=='image/png'||$tipo=='image/jpg'||$tipo=='image/jpeg'){
+                    if($tamaño > 20971520){
+                        return "El tamaño es demasiado grande.";
+                    }
+                }else{
+                    return "La extensión utilizada no es la adecuada";
+                }
             }else{
-                $icono="'".$_POST['icono']."'";
+                $icono='NULL';
             }
-            //Compruebo que la ruta no se queda en blanco
+            //la ruta no esté vacia
             if(empty($_POST['ruta'])){
                 return "No dejes la ruta en blanco";
             }else{
@@ -32,16 +42,19 @@
             $this->modelo->alta($nombre,$icono,$ruta);
             //Compruebo si hay filas afectadas
             if($this->modelo->conexion->affected_rows>0){
+                //Muevo el archivo a la carpeta fichero
+                $dir_subida=FICHERO.basename($_FILES["icono"]["name"]);
+                move_uploaded_file($_FILES['icono']['tmp_name'],$dir_subida);
+                //filas afectadas
                 return "Hay ".$this->modelo->conexion->affected_rows." filas afectadas.";
             }else{
-                //Compruebo que los nombres no se repitan con este error que sale al repetirse el nombre en la base de datos
+                //que los nombres no esten duplicados
                 if($this->modelo->conexion->errno==1062){
                     return "El nombre ya existe";
                 }else{
                     return "Se ha producido un error inesperado";
                 }
             }
-            
         }
 
 
